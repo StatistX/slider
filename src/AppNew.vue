@@ -146,8 +146,6 @@ export default {
       this.slideCounter = `${this.currentSlide}/${this.slides.length}`;
     },
     changeSlide(dot) {
-      this.stopTimer();
-      this.setTimer();
       this.currentSlide = dot;
     },
     changeAutoLoop() {
@@ -162,6 +160,7 @@ export default {
   },
   watch: {
     currentSlide() {
+      this.stopTimer();
       if (this.currentSlide <= 0) {
         !this.loop ? this.currentSlide = 1 : this.currentSlide = this.slides.length;
       } else if (this.currentSlide <= this.slides.length) {
@@ -174,6 +173,7 @@ export default {
       }
       this.setSlideCaption();
       this.setSlideCounter();
+      this.setTimer();
     }
   }
 }
