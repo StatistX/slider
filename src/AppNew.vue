@@ -118,7 +118,7 @@ export default {
       navs: true,
       pags: true,
       auto: true,
-      timer: '',
+      timer: null,
     }
   },
   mounted() {
